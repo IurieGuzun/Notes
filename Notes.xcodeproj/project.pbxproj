@@ -16,6 +16,8 @@
 		8A4C2C54270F927700E1BC09 /* NotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C2C53270F927700E1BC09 /* NotesTests.swift */; };
 		8A4C2C5E270F927700E1BC09 /* NotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C2C5D270F927700E1BC09 /* NotesUITests.swift */; };
 		8A4C2C60270F927700E1BC09 /* NotesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C2C5F270F927700E1BC09 /* NotesUITestsLaunchTests.swift */; };
+		8A4C2C722712112500E1BC09 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C2C712712112500E1BC09 /* Note.swift */; };
+		8A4C2C742712140100E1BC09 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C2C732712140100E1BC09 /* AlertService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		8A4C2C59270F927700E1BC09 /* NotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A4C2C5D270F927700E1BC09 /* NotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesUITests.swift; sourceTree = "<group>"; };
 		8A4C2C5F270F927700E1BC09 /* NotesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8A4C2C712712112500E1BC09 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		8A4C2C732712140100E1BC09 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +103,11 @@
 		8A4C2C3B270F927600E1BC09 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
-				8A4C2C3C270F927600E1BC09 /* AppDelegate.swift */,
-				8A4C2C3E270F927600E1BC09 /* SceneDelegate.swift */,
-				8A4C2C40270F927600E1BC09 /* ViewController.swift */,
-				8A4C2C42270F927600E1BC09 /* Main.storyboard */,
-				8A4C2C45270F927700E1BC09 /* Assets.xcassets */,
-				8A4C2C47270F927700E1BC09 /* LaunchScreen.storyboard */,
+				8A4C2C70271210F700E1BC09 /* Model */,
 				8A4C2C4A270F927700E1BC09 /* Info.plist */,
+				8A4C2C6F2712002000E1BC09 /* Services */,
+				8A4C2C6E2712000500E1BC09 /* Controller */,
+				8A4C2C6D2711FFF100E1BC09 /* View */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -125,6 +127,42 @@
 				8A4C2C5F270F927700E1BC09 /* NotesUITestsLaunchTests.swift */,
 			);
 			path = NotesUITests;
+			sourceTree = "<group>";
+		};
+		8A4C2C6D2711FFF100E1BC09 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8A4C2C42270F927600E1BC09 /* Main.storyboard */,
+				8A4C2C45270F927700E1BC09 /* Assets.xcassets */,
+				8A4C2C47270F927700E1BC09 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8A4C2C6E2712000500E1BC09 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8A4C2C40270F927600E1BC09 /* ViewController.swift */,
+				8A4C2C3E270F927600E1BC09 /* SceneDelegate.swift */,
+				8A4C2C3C270F927600E1BC09 /* AppDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8A4C2C6F2712002000E1BC09 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8A4C2C732712140100E1BC09 /* AlertService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8A4C2C70271210F700E1BC09 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8A4C2C712712112500E1BC09 /* Note.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +299,8 @@
 				8A4C2C41270F927600E1BC09 /* ViewController.swift in Sources */,
 				8A4C2C3D270F927600E1BC09 /* AppDelegate.swift in Sources */,
 				8A4C2C3F270F927600E1BC09 /* SceneDelegate.swift in Sources */,
+				8A4C2C722712112500E1BC09 /* Note.swift in Sources */,
+				8A4C2C742712140100E1BC09 /* AlertService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
