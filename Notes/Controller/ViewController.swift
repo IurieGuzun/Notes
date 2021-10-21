@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        CKService.shared.subscribe()
+        getNotes()
     }
     @IBAction func onComposeTapped() {
         AlertService.composeNote(in: self) { (note) in
@@ -29,7 +30,12 @@ class ViewController: UIViewController {
          let indexPath = IndexPath(row: 0, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
-
+    func getNotes() {
+        NotesService.getNotes { (notes) in
+            self.notes = notes
+            self.tableView.reloadData()
+        }
+    }
 }
 
 extension ViewController: UITableViewDataSource {
