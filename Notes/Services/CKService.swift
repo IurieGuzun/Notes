@@ -37,10 +37,12 @@ class CKService {
     func subscribe() {
         let subsciption = CKQuerySubscription(recordType: Note.recordType,
                                               predicate: NSPredicate(value: true),
-                                              options: .firesOnRecordCreation)
+                                              options: .firesOnRecordDeletion)
         
         let notificationInfo = CKSubscription.NotificationInfo()  // Modified by Iurie
         notificationInfo.shouldSendContentAvailable = true
+        
+        notificationInfo.alertBody = ""   // Added by Iurie Plese remove!
         
         subsciption.notificationInfo = notificationInfo
         
@@ -70,7 +72,7 @@ class CKService {
 //        }
 //    }
 //    
-    func fetchRecord(with recordId: CKRecordID) {
+    func fetchRecord(with recordId: CKRecord.ID) {
         privateDatabase.fetch(withRecordID: recordId) { (record, error) in
             print(error ?? "no ck fetch error")
             guard let record = record else { return }
@@ -83,15 +85,15 @@ class CKService {
     
     func handleNotification(with userInfo: [AnyHashable: Any]) {
         let notification = CKNotification(fromRemoteNotificationDictionary: userInfo)
-        switch notification.notificationType {
+        switch notification?.notificationType {  // Added ? by Iurie
         case .query:
             guard let queryNotification = notification as? CKQueryNotification,
                 let recordId = queryNotification.recordID
                 else { return }
             fetchRecord(with: recordId)
-            
+
         default: return
-            
+
         }
     }
 }

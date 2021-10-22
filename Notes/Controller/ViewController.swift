@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class ViewController: UIViewController {
 
@@ -17,6 +18,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         CKService.shared.subscribe()
         getNotes()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleFetch(_:)),
+                                               name: NSNotification.Name("internalNotification.fetchedRecord"),
+                                               object: nil)
+
     }
     @IBAction func onComposeTapped() {
         AlertService.composeNote(in: self) { (note) in
@@ -53,4 +60,12 @@ extension ViewController: UITableViewDataSource {
         return notes.count
     }
     
+    @objc
+    func handleFetch(_ sender: Notification) {
+        guard let record = sender.object as? CKRecord,
+            let note = Note(record: record)
+            else { return }
+        insert(note: note)
+    }
+
 }
