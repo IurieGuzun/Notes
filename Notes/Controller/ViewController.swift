@@ -16,7 +16,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        CKService.shared.subscribe()
+        CKService.shared.subscribeWithUI()
+        
+        UNService.shared.authorize()
+        
         getNotes()
         
         NotificationCenter.default.addObserver(self,

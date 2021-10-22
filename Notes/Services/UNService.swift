@@ -33,14 +33,14 @@ class UNService: NSObject {
 extension UNService: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print("un did receive")
-        CKService.shared.handleNotification(with: response.notification.request.content.userInfo)
+//        CKService.shared.handleNotification(with: response.notification.request.content.userInfo)
         completionHandler()
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("un will present")
-        print(notification.request.content.userInfo)
-        CKService.shared.handleNotification(with: notification.request.content.userInfo)
+//        print(notification.request.content.userInfo)
+//        CKService.shared.handleNotification(with: notification.request.content.userInfo)
         let options: UNNotificationPresentationOptions = [.alert, .sound]
         completionHandler(options)
         

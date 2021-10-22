@@ -51,27 +51,27 @@ class CKService {
             print(sub ?? "unable to subscribe")
         }
     }
-//    
-//    func subscribeWithUI() {
-//        let subsciption = CKQuerySubscription(recordType: Note.recordType,
-//                                              predicate: NSPredicate(value: true),
-//                                              options: .firesOnRecordCreation)
-//        
-//        let notificationInfo = CKNotificationInfo()
-//        notificationInfo.title = "This is Cool"
-//        notificationInfo.subtitle = "A Whole New iCloud"
-//        notificationInfo.alertBody = "I bet ya didnt know about the power of the cloud"
-//        notificationInfo.shouldBadge = true
-//        notificationInfo.soundName = "default"
-//        
-//        subsciption.notificationInfo = notificationInfo
-//        
-//        privateDatabase.save(subsciption) { (sub, error) in
-//            print(error ?? "No ck sub error")
-//            print(sub ?? "unable to subscribe")
-//        }
-//    }
-//    
+    
+    func subscribeWithUI() {
+        let subsciption = CKQuerySubscription(recordType: Note.recordType,
+                                              predicate: NSPredicate(value: true),
+                                              options: .firesOnRecordCreation)
+        
+        let notificationInfo = CKSubscription.NotificationInfo() // Modified by Iurie
+        notificationInfo.title = "This is Cool"
+        notificationInfo.subtitle = "A Whole New iCloud"
+        notificationInfo.alertBody = "I bet ya didnt know about the power of the cloud"
+        notificationInfo.shouldBadge = true
+        notificationInfo.soundName = "default"
+        
+        subsciption.notificationInfo = notificationInfo
+        
+        privateDatabase.save(subsciption) { (sub, error) in
+            print(error ?? "No ck sub error")
+            print(sub ?? "unable to subscribe")
+        }
+    }
+    
     func fetchRecord(with recordId: CKRecord.ID) {
         privateDatabase.fetch(withRecordID: recordId) { (record, error) in
             print(error ?? "no ck fetch error")
